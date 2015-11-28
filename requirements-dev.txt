@@ -1,0 +1,6 @@
+bumpversion
+Django
+pytest
+pytest-cov
+pytest-django
+tox
