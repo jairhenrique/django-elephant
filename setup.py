@@ -15,7 +15,7 @@ setup(
     name='django-elephant',
     license='MIT',
     version='0.0.1',
-    install_requires=['Django'],
+    install_requires=['Django>=1.4'],
     url='https://github.com/jairhenrique/django-elephant',
     author='Jair Henrique',
     author_email='jair.henrique@gmail.com',

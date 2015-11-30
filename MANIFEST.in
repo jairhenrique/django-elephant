@@ -2,6 +2,7 @@ include LICENSE
 include README.md
 include tox.ini
 include .coveragerc
-recursive-include tests requirements-dev.txt *.py
+include requirements-dev.txt
+recursive-include tests *.py
 recursive-exclude * __pycache__
-global-exclude *pyc
+recursive-exclude * *.py[co]
