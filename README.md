@@ -16,6 +16,9 @@ pip install django-elephant
 ```
 
 ## Usage
+
+#### Using default cache:
+
 ```python
 from elephant import memorize
 
@@ -25,7 +28,27 @@ def make_cache_key(function, *args, **kwargs):
 @memorize(cache_key=make_cache_key, timeout=10000)
 def foo(bar):
     return bar
+```
 
+
+#### Using other cache configuration:
+
+```python
+from django.core.cache import caches
+from elephant import memorize
+
+other_cache = caches['other_cache']
+
+def make_cache_key(function, *args, **kwargs):
+    return function.__name__
+
+@memorize(
+    cache_key=make_cache_key, 
+    timeout=10000,
+    cache=other_cache
+)
+def foo(bar):
+    return bar
 ```
 
 
