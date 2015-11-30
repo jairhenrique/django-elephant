@@ -6,6 +6,32 @@
 [![Code Issues](https://www.quantifiedcode.com/api/v1/project/03084631935244baa8335617d6502d11/badge.svg)](https://www.quantifiedcode.com/app/project/03084631935244baa8335617d6502d11)
 
 
-## TODO
-- Documentation
+*django-elephant is a simple wrapper to cache responses of Django methods or functions*
+
+
+## Setup
+
+```bash
+pip install django-elephant
+```
+
+## Usage
+```python
+from elephant import memorize
+
+def make_cache_key(function, *args, **kwargs):
+    return function.__name__
+
+@memorize(cache_key=make_cache_key, timeout=10000)
+def foo(bar):
+    return bar
+
+```
+
+
+## Requirements
+- Django>=1.4
+
+
+## Todo
 - Create generic cache key function
