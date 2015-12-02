@@ -43,7 +43,7 @@ def make_cache_key(function, *args, **kwargs):
     return function.__name__
 
 @memorize(
-    cache_key=make_cache_key, 
+    cache_key=make_cache_key,
     timeout=10000,
     cache=other_cache
 )
@@ -53,7 +53,7 @@ def foo(bar):
 
 
 ## Requirements
-- Django>=1.4
+- Django>=1.5
 
 
 ## Todo
