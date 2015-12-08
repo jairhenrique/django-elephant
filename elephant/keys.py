@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from collections import OrderedDict
 import inspect
 
 
@@ -37,11 +38,10 @@ def generic(obj, *args, **kwargs):
         generic_key = generic_key + '.' + _args
 
     if kwargs:
+        kwargs = OrderedDict(sorted(kwargs.items(), key=lambda t: t[0]))
+
         _kwargs = '.'.join(
-            [
-                '_'.join(map(str, data))
-                for data in zip(kwargs.keys(), kwargs.values())
-            ]
+            ['_'.join(map(str, item)) for item in kwargs.items()]
         )
 
         generic_key = generic_key + '.' + _kwargs
