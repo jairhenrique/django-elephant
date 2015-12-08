@@ -21,11 +21,11 @@ env:
 install:
   - make requirements
 
-before_script:
-  - pip install python-coveralls
-
-script:
-    - tox -e $TOX_ENV
+before_install:
+  - pip install codecov
 
 after_success:
-  - coveralls
+  - codecov
+
+script:
+  - tox -e $TOX_ENV
