@@ -16,6 +16,8 @@ from elephant.keys import generic
 class Elephant(object):
     """
     Elephant
+
+    Generic wrapper to cache django methods and functions
     """
     def __init__(self):
         pass

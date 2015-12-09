@@ -4,6 +4,9 @@ import inspect
 
 
 def _namespace(obj):
+    """
+    Return qualified name from object
+    """
     module = obj.__module__ or __name__
 
     if hasattr(obj, '__qualname__'):
@@ -30,6 +33,9 @@ def _namespace(obj):
 
 
 def generic(obj, *args, **kwargs):
+    """
+    Return a generic cache key name
+    """
 
     _args = None
     _kwargs = None
