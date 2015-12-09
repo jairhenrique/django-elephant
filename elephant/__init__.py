@@ -10,6 +10,7 @@ except ImportError:  # Django < 1.6 compatibility
 
 
 from elephant.exceptions import CacheKeyFunctionNotDefined
+from elephant.keys import generic
 
 
 class Elephant(object):
@@ -22,7 +23,7 @@ class Elephant(object):
     @staticmethod
     def memorize(
         cache=default_cache,
-        cache_key=None,
+        cache_key=generic,
         timeout=DEFAULT_TIMEOUT
     ):
         def memorize(f):
