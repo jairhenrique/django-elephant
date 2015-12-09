@@ -20,3 +20,6 @@ release-minor:
 
 release-major:
 	bumpversion major
+
+pypi:
+	python setup.py sdist bdist_wheel upload -r pypi
