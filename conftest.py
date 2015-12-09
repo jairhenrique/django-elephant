@@ -29,6 +29,11 @@ def pytest_configure():
             'django.contrib.auth',
             'django.contrib.contenttypes',
         ),
+        CACHES={
+            'default': {
+                'BACKEND': 'django.core.cache.backends.locmem.LocMemCache'
+            }
+        }
     )
 
     if django.get_version() >= '1.7':
