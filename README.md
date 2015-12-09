@@ -17,21 +17,18 @@ pip install django-elephant
 
 ## Usage
 
-#### Using default cache:
+#### Basic:
 
 ```python
 from elephant import memorize
 
-def make_cache_key(function, *args, **kwargs):
-    return function.__name__
-
-@memorize(cache_key=make_cache_key, timeout=10000)
+@memorize()
 def foo(bar):
     return bar
 ```
 
 
-#### Using other cache configuration:
+#### Set cache configuration:
 
 ```python
 from django.core.cache import caches
@@ -39,12 +36,7 @@ from elephant import memorize
 
 other_cache = caches['other_cache']
 
-def make_cache_key(function, *args, **kwargs):
-    return function.__name__
-
 @memorize(
-    cache_key=make_cache_key,
-    timeout=10000,
     cache=other_cache
 )
 def foo(bar):
@@ -52,9 +44,39 @@ def foo(bar):
 ```
 
 
+#### Set cache timeout:
+
+```python
+from elephant import memorize
+
+@memorize(
+    timeout=1987
+)
+def foo(bar):
+    return bar
+```
+
+#### Set cache key:
+
+```python
+from elephant import memorize
+
+def my_custom_key(function, *args, **kwargs):
+    return '{}.{}'.format(
+        'elephant_'
+        function.__name__
+    )
+
+@memorize(
+    cache_key=my_custom_key
+)
+def foo(bar):
+    return bar
+```
+
 ## Requirements
 - Django>=1.5
 
 
-## Todo
-- Create generic cache key function
+## Contribute
+- Fork and make a pull request!
