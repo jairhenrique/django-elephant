@@ -14,7 +14,7 @@ def read(fname):
 setup(
     name='django-elephant',
     license='MIT',
-    version='0.0.2',
+    version='1.0.0',
     install_requires=['Django>=1.4'],
     url='https://github.com/jairhenrique/django-elephant',
     author='Jair Henrique',
