@@ -19,7 +19,10 @@ def _namespace(obj):
         klass = getattr(obj, 'im_class', None)
 
     if klass:
-        name = klass.__name__ + '.' + obj.__name__
+        name = '{}.{}'.format(
+            klass.__name__,
+            obj.__name__
+        )
     else:
         name = obj.__name__
 
@@ -35,7 +38,10 @@ def generic(obj, *args, **kwargs):
 
     if args:
         _args = '.'.join(map(str, args))
-        generic_key = generic_key + '.' + _args
+        generic_key = '{}.{}'.format(
+            generic_key,
+            _args
+        )
 
     if kwargs:
         kwargs = OrderedDict(sorted(kwargs.items(), key=lambda t: t[0]))
@@ -44,6 +50,9 @@ def generic(obj, *args, **kwargs):
             ['_'.join(map(str, item)) for item in kwargs.items()]
         )
 
-        generic_key = generic_key + '.' + _kwargs
+        generic_key = '{}.{}'.format(
+            generic_key,
+            _kwargs
+        )
 
     return generic_key
