@@ -19,8 +19,8 @@ class Elephant(object):
     def __init__(self):
         pass
 
+    @staticmethod
     def memorize(
-        self,
         cache=default_cache,
         cache_key=None,
         timeout=DEFAULT_TIMEOUT
