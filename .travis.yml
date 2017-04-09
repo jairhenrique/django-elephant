@@ -2,30 +2,23 @@ language: python
 
 sudo: false
 
-cache:
-  directories:
-    - $HOME/.cache/pip
+python:
+  - "2.7"
+  - "3.4"
+  - "3.5"
+  - "3.6"
 
-env:
-  - TOX_ENV=py27-django15
-  - TOX_ENV=py27-django16
-  - TOX_ENV=py27-django17
-  - TOX_ENV=py27-django18
-  - TOX_ENV=py27-django19
-  - TOX_ENV=py34-django15
-  - TOX_ENV=py34-django16
-  - TOX_ENV=py34-django17
-  - TOX_ENV=py34-django18
-  - TOX_ENV=py34-django19
+addons:
+  apt:
+    sources:
+      - deadsnakes
+    packages:
+      - python3.5
+
+cache: pip
 
 install:
+  - pip install tox-travis
   - make requirements
 
-before_install:
-  - pip install codecov
-
-after_success:
-  - codecov
-
-script:
-  - tox -e $TOX_ENV
+script: tox
