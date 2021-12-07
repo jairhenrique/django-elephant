@@ -1,5 +1,5 @@
 bumpversion
-Django
+Django==4.0
 pytest
 pytest-cov
 pytest-django
