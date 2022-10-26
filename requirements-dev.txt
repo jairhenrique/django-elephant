@@ -3,5 +3,5 @@ Django
 pytest
 pytest-cov
 pytest-django
-tox
+tox==3.27.0
 wheel
