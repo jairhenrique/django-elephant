@@ -1,6 +1,6 @@
 bumpversion
 Django
-pytest
+pytest==7.4.1
 pytest-cov
 pytest-django
 tox
