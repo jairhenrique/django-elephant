@@ -2,6 +2,6 @@ bumpversion
 Django
 pytest
 pytest-cov
-pytest-django
+pytest-django==4.8.0
 tox==4.11.2
 wheel==0.38.2
