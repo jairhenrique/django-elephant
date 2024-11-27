@@ -1,4 +1,4 @@
-bumpversion
+bumpversion==0.6.0
 Django
 pytest
 pytest-cov
